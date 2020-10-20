@@ -18,6 +18,11 @@ export class DecisionService {
     return this.decisionModel.findById(decisionId);
   }
 
+  async addDecision(createDecisionDto): Promise<Decision> {
+    const newDecision = await new this.decisionModel(createDecisionDto);
+    return newDecision.save();
+  }
+
   async updateDecision(decisionId: string, createDecisionDto: CreateDecisionDto): Promise<Decision> {
     return this.decisionModel.findByIdAndUpdate(decisionId, createDecisionDto, { new: true });
   }
