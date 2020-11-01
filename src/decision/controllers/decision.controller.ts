@@ -13,10 +13,14 @@ import { Response } from 'express';
 
 import { DecisionService } from '../services/decision.service';
 import { CreateDecisionDto } from '../dtos/create-decision.dto';
+import { ConfigService } from '@nestjs/config';
 
 @Controller('decisions')
 export class DecisionController {
-  constructor(private readonly decisionService: DecisionService) {}
+  constructor(
+    private readonly decisionService: DecisionService,
+    private configService: ConfigService,
+  ) {}
 
   @Post()
   async addDecision(@Body() createDecisionDto: CreateDecisionDto) {
@@ -47,6 +51,7 @@ export class DecisionController {
     @Param('decisionId') decisionId: string,
     @Body() createDecisionDto: CreateDecisionDto,
   ) {
+    console.log('test controller', this.configService.get<string>('MONGODB_URI'));
     const decision = await this.decisionService.updateDecision(
       decisionId,
       createDecisionDto,
