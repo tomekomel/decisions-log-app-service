@@ -5,5 +5,5 @@ export const decisionSchema = new mongoose.Schema({
   reasons: String,
   author: String,
   type: String,
-  date: { type: Date, default: Date.now() },
+  date: String,
 });

@@ -3,5 +3,5 @@ export class CreateDecisionDto {
   readonly reasons: string;
   readonly author: string;
   readonly type: string;
-  readonly date: Date;
+  readonly date: string;
 }
