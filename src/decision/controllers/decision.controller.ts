@@ -51,7 +51,6 @@ export class DecisionController {
     @Param('decisionId') decisionId: string,
     @Body() createDecisionDto: CreateDecisionDto,
   ) {
-    console.log('test controller', this.configService.get<string>('MONGODB_URI'));
     const decision = await this.decisionService.updateDecision(
       decisionId,
       createDecisionDto,
