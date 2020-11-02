@@ -13,13 +13,11 @@ import { Response } from 'express';
 
 import { DecisionService } from '../services/decision.service';
 import { CreateDecisionDto } from '../dtos/create-decision.dto';
-import { ConfigService } from '@nestjs/config';
 
 @Controller('decisions')
 export class DecisionController {
   constructor(
-    private readonly decisionService: DecisionService,
-    private configService: ConfigService,
+    private readonly decisionService: DecisionService
   ) {}
 
   @Post()

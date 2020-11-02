@@ -7,8 +7,8 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "NODE_ENV=dev ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "NODE_ENV=dev tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nest build --webpack --webpackPath webpack-hmr.config.js",
     "start:debug": "tsc-watch -p tsconfig.build.json --onSuccess \"node --inspect-brk dist/main.js\"",
     "start:prod": "node dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -38,13 +38,16 @@
     "@types/supertest": "2.0.7",
     "jest": "24.7.1",
     "prettier": "1.17.0",
+    "start-server-webpack-plugin": "^2.2.5",
     "supertest": "4.0.2",
     "ts-jest": "24.0.2",
     "ts-node": "8.1.0",
     "tsc-watch": "2.2.1",
     "tsconfig-paths": "3.8.0",
     "tslint": "5.16.0",
-    "typescript": "3.4.3"
+    "typescript": "3.4.3",
+    "webpack": "^5.3.2",
+    "webpack-node-externals": "^2.5.2"
   },
   "jest": {
     "moduleFileExtensions": [
