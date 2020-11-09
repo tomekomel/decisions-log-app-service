@@ -2,7 +2,6 @@ FROM node:12-alpine
 
 ENV AP /data/app
 
-RUN apt-get -y update
 RUN mkdir -p $AP/node_modules && chown -R node:node $AP
 
 WORKDIR $AP
