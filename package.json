@@ -9,7 +9,9 @@
     "node": ">=8.0.0"
   },
   "scripts": {
+    "deploy": "gcloud app deploy --quiet",
     "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "gcp-build": "npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "npm run start:prod",
     "start:dev": "NODE_ENV=dev tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
